@@ -1,0 +1,182 @@
+/* Phần tuyết rơi */
+.snowflake {
+    position: absolute;
+    top: -10px;  /* Tuyết bắt đầu ở trên cùng */
+    color: white;
+    font-size: 10px;  /* Kích thước mặc định */
+    user-select: none;
+    pointer-events: none;  /* Không cho phép tương tác với tuyết */
+    opacity: 0.8;
+    animation-name: snowfall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Hiệu ứng tuyết rơi */
+@keyframes snowfall {
+    0% {
+        transform: translateY(0) rotate(0deg);  /* Bắt đầu tại vị trí đầu */
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);  /* Tuyết rơi xuống hết chiều cao màn hình */
+    }
+}
+
+/* Các phần tử khác */
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: #D32F2F; /* Phông nền đỏ Giáng sinh */
+    color: white; /* Màu chữ mặc định là trắng */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Căn giữa nội dung theo chiều ngang */
+    align-items: flex-start; /* Căn phần tử lên đầu trang */
+    min-height: 100vh; /* Đảm bảo chiều cao luôn đầy đủ */
+    text-align: center;
+    overflow: auto; /* Cho phép cuộn tự động nếu nội dung tràn */
+}
+
+/* Nội dung chính */
+.container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+    padding: 20px;
+    box-sizing: border-box; /* Đảm bảo các phần tử không bị tràn ngoài */
+}
+
+/* Khung Chào và Mời */
+.greeting {
+    background-color: #B71C1C; /* Màu đỏ đậm */
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    max-width: 650px;
+    margin: 0 auto;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Bóng đổ nhẹ */
+}
+
+.greeting h1 {
+    color: white;
+    font-size: 32px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.greeting p {
+    color: white;
+    font-size: 26px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Màu vàng cho các từ "Đỗ Phương", "Thời gian", "Địa điểm" */
+.highlight {
+    color: #FFD700; /* Màu vàng */
+    font-weight: bold;
+}
+
+/* Khung Thông tin sự kiện */
+.event-info {
+    background-color: #FF6659; /* Màu đỏ nhạt */
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 650px;
+    margin: 0 auto;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Bóng đổ nhẹ */
+}
+
+.event-info p {
+    color: white;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.event-info .highlight {
+    color: #FFD700; /* Vàng */
+}
+
+/* Hình ảnh */
+.images img {
+    border: 5px solid gold;
+    border-radius: 15px;
+    max-width: 100%; /* Đảm bảo ảnh sẽ co dãn theo chiều rộng của container */
+    height: auto; /* Giữ tỷ lệ gốc của ảnh */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.images img:hover {
+    transform: scale(1.05);
+}
+
+/* Đếm ngược */
+.countdown {
+    font-size: 35px;
+    margin: 30px 0;
+    color: gold;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Lời cảm ơn */
+.thanks-message {
+    font-size: 24px;
+    color: white;
+    margin-top: 30px;
+}
+
+/* Bình luận */
+.comment-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #B71C1C;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.comment-section h2 {
+    font-size: 28px;
+    color: white;
+}
+
+#name-box, #comment-box {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+#submit-comment {
+    background-color: #FFD700;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#submit-comment:hover {
+    background-color: #FF5733; /* Đổi màu khi hover */
+}
+
+#comments-list {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #FFD700;
+}
+
+.comment {
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    color: black;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiệp mời Tốt nghiệp</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Phần tuyết rơi -->
+  <div class="snowflakes"></div>
+
+  <!-- Nội dung thiệp mời -->
+  <div class="container">
+    <!-- Khung chào và mời -->
+    <div class="greeting">
+      <h1>Chào bạn, Khiêm!</h1>
+      <p>Mời bạn tham gia lễ tốt nghiệp của <span class="highlight">Đỗ Phương</span></p>
+    </div>
+
+    <!-- Khung thông tin sự kiện -->
+    <div class="event-info">
+      <p><span class="highlight">Thời gian:</span> 16:00 AM, ngày 09 tháng 1 2025</p>
+      <p><span class="highlight">Địa điểm:</span> HUTECH – Đại học Công nghệ TP.HCM (Thu Duc Campus)</p>
+    </div>
+
+    <!-- Hình ảnh -->
+    <div class="images">
+      <img src="images/your-photo1.jpg" alt="Ảnh 1: Lễ tốt nghiệp" width="300">
+    </div>
+
+    <!-- Đếm ngược -->
+    <div class="countdown" id="countdown"></div>
+
+    <!-- Lời cảm ơn -->
+    <div class="thanks-message">
+      <strong>Cảm ơn bạn đã đến chung vui với tôi trong ngày trọng đại này!</strong>
+    </div>
+
+    <!-- Phần Lời chúc -->
+    <div class="comment-section">
+      <h2>Để lại lời chúc cho tôi!</h2>
+      <input type="text" id="name-box" placeholder="Nhập tên của bạn..." />
+      <br>
+      <textarea id="comment-box" placeholder="Nhập lời chúc của bạn ở đây..." rows="4"></textarea>
+      <br>
+      <button id="submit-comment">Gửi lời chúc</button>
+      <div id="comments-list" style="display: none;">
+        <h3>Lời chúc mừng từ các bạn:</h3>
+        <!-- Các lời chúc sẽ hiển thị ở đây -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Đếm ngược -->
+  <script>
+    // Lấy ngày giờ sự kiện (09 tháng 1 năm 2025, 16:00)
+    var eventDate = new Date("January 9, 2025 16:00:00").getTime();
+
+    // Cập nhật đếm ngược mỗi giây
+    var countdownFunction = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = eventDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = days + " ngày " + hours + " giờ " + minutes + " phút " + seconds + " giây ";
+
+      if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "Sự kiện đã diễn ra!";
+      }
+    }, 1000);
+  </script>
+
+  <!-- Tuyết rơi -->
+  <script src="snow.js"></script>
+
+  <!-- Phần Script cho bình luận -->
+  <script src="script.js"></script>
+
+</body>
+</html>
